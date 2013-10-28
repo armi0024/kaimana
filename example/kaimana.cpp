@@ -1,7 +1,23 @@
-// kaimana.cpp
+//  kaimana.cpp
 //
-//   Created:  October 24, 2013    zonbipanda // gmail.com
-//   Revised:  October 25, 2013    zonbipanda // gmail.com
+//  Copyright 2013 Paradise Arcade Shop, ParadiseArcadeShop.com  
+//  All rights reserved.  Use is subject to license terms.
+//
+//  Paradise Arcade Shop Kaimana PS360+LED Driver Board
+//  Initial Release October 15, 2013
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+//  THE SOFTWARE.
+//
+//  Kaimana class based on original source released by ParadiseArcadeShop.com October 15, 2013
+//
+//  Created:  October 24, 2013    zonbipanda // gmail.com
+//  Revised:  October 26, 2013    zonbipanda // gmail.com
 //
 
 #include <avr/io.h>
@@ -27,7 +43,7 @@ Kaimana::Kaimana(void)
   pinMode( PIN_LEFT,   INPUT_PULLUP );
   pinMode( PIN_RIGHT,  INPUT_PULLUP );
   pinMode( PIN_HOME,   INPUT_PULLUP );    // HOME = GUIDE
-  pinMode( PIN_SELECT, INPUT_PULLUP );    // SELECT = BACK
+  pinMode( PIN_SELECT, INPUT_PULLUP );    // SELECT = BACK 
   pinMode( PIN_START,  INPUT_PULLUP );
   pinMode( PIN_P1,     INPUT_PULLUP );
   pinMode( PIN_P2,     INPUT_PULLUP );
@@ -43,7 +59,6 @@ Kaimana::Kaimana(void)
 }
 
 
-
 void Kaimana::setLED(int index, int iR, int iG, int iB)
 {
   // set led identified by index to the RGB color passed to this function
@@ -53,7 +68,7 @@ void Kaimana::setLED(int index, int iR, int iG, int iB)
     _led[index].g=iG;
     _led[index].b=iB;
   }
-}
+}  
 
 
 void Kaimana::setALL(int iR, int iG, int iB)
@@ -191,14 +206,14 @@ void Kaimana::update(void)
     [pin] "I" (0) \
   : "r18", "r19", "r20", "r26", "r27", "cc", "memory" \
   );
-}
+}  
 
 
 
 void Kaimana::historyClear(void)
 {
   static int  i;
-
+  
   // initialize Switch History with zeros
   for(i=0;i<SWITCH_HISTORY_MAX;++i)
     _switchHistory[i] = 0;
@@ -214,22 +229,22 @@ void Kaimana::historyUpdate(uint16_t latestValue)
     // shift historical values down list
     for(i=(SWITCH_HISTORY_MAX-1);i>0;--i)
       _switchHistory[i] = _switchHistory[i-1];
-
+  
     // insert latest value at top of list
     _switchHistory[0] = latestValue;
   }
-}
+}  
 
 
 boolean Kaimana::historyTest( uint16_t a0, uint16_t a1, uint16_t a2,  uint16_t a3,  uint16_t a4,  uint16_t a5,  uint16_t a6,  uint16_t a7, uint16_t a8, uint16_t a9, uint16_t a10, uint16_t a11, uint16_t a12, uint16_t a13, uint16_t a14, uint16_t a15 )
 {
   static boolean result;
-
+ 
   result = true;
-
+  
   // if no parameters are passed to function then all default values are used and will result in a match returning a true
   // this is a great way to test the functionality without added complexity
-
+  
   if(a0 != ATTACK_FALSE)
     if(a0 != _switchHistory[0])
       result = false;
@@ -279,13 +294,16 @@ boolean Kaimana::historyTest( uint16_t a0, uint16_t a1, uint16_t a2,  uint16_t a
   if(a15 != ATTACK_FALSE)
     if(a15 != _switchHistory[15])
       result = false;
-
+  
   // clear history when matched = TRUE
   if(result == true)
     historyClear();
-
+    
   return(result);
 }
+
+
+
 
 
 

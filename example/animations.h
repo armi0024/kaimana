@@ -1,7 +1,23 @@
-// combo_animatinos.h
+//  combo_animatinos.h
 //
-//   Created:  October 25, 2013    zonbipanda // gmail.com
-//   Revised:  October 25, 2013    zonbipanda // gmail.com
+//  Copyright 2013 Paradise Arcade Shop, ParadiseArcadeShop.com  
+//  All rights reserved.  Use is subject to license terms.
+//
+//  Paradise Arcade Shop Kaimana PS360+LED Driver Board
+//  Initial Release October 15, 2013
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+//  THE SOFTWARE.
+//
+//  Kaimana animations based on original source released by ParadiseArcadeShop.com October 15, 2013
+//
+//  Created:  October 24, 2013    zonbipanda // gmail.com
+//  Revised:  October 26, 2013    zonbipanda // gmail.com
 //
 
 #ifndef __animations_h__

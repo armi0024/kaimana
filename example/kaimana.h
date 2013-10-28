@@ -1,7 +1,23 @@
-// kaimana.h
+//  kaimana.h
 //
-//   Created:  October 24, 2013    zonbipanda // gmail.com
-//   Revised:  October 25, 2013    zonbipanda // gmail.com
+//  Copyright 2013 Paradise Arcade Shop, ParadiseArcadeShop.com  
+//  All rights reserved.  Use is subject to license terms.
+//
+//  Paradise Arcade Shop Kaimana PS360+LED Driver Board
+//  Initial Release October 15, 2013
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+//  THE SOFTWARE.
+//
+//  Kaimana class based on original source released by ParadiseArcadeShop.com October 15, 2013
+//
+//  Created:  October 24, 2013    zonbipanda // gmail.com
+//  Revised:  October 26, 2013    zonbipanda // gmail.com
 //
 
 #ifndef __kaimana_h__
@@ -14,7 +30,6 @@
 
 // Map function names to arduino leonardo atmega32u4 digital pin numbers
 // specific to ParadiseArcadeShop.com Kaimana board (PS360+LED)
-// change or expand as needed
 #define  PIN_DOWN    11
 #define  PIN_UP      18
 #define  PIN_LEFT    19
@@ -34,7 +49,6 @@
 #define  PIN_K4      6
 //
 #define  PIN_LED     23
-
 
 
 // Map function names to binary input masks on atmega32u4 digital pin numbers
@@ -95,7 +109,7 @@ class Kaimana
     // specific to ParadiseArcadeShop.com Kaimana board (PS360+LED)
     RGB_t _led[LED_COUNT];
     uint16_t _switchHistory[SWITCH_HISTORY_MAX];
-
+    
   public:
     Kaimana(void);
     void    setLED(int index, int iR, int iG, int iB);
@@ -115,7 +129,6 @@ void update(void);
 void historyClear(void);
 void historyUpdate(uint16_t latestValue);
 boolean historyTest( uint16_t a0=ATTACK_FALSE, uint16_t a1=ATTACK_FALSE, uint16_t a2=ATTACK_FALSE,  uint16_t a3=ATTACK_FALSE,  uint16_t a4=ATTACK_FALSE,  uint16_t a5=ATTACK_FALSE,  uint16_t a6=ATTACK_FALSE,  uint16_t a7=ATTACK_FALSE, uint16_t a8=ATTACK_FALSE, uint16_t a9=ATTACK_FALSE, uint16_t a10=ATTACK_FALSE, uint16_t a11=ATTACK_FALSE, uint16_t a12=ATTACK_FALSE, uint16_t a13=ATTACK_FALSE, uint16_t a14=ATTACK_FALSE, uint16_t a15=ATTACK_FALSE );
-
 
 
 #endif

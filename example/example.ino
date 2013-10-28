@@ -1,9 +1,10 @@
+//  example.ino
+//
 //  Copyright 2013 Paradise Arcade Shop, ParadiseArcadeShop.com  
 //  All rights reserved.  Use is subject to license terms.
 //
 //  Paradise Arcade Shop Kaimana PS360+LED Driver Board
-//  Version 0.131025f
-//  October 2013
+//  Initial Release October 15, 2013
 //
 //  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 //  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -13,6 +14,10 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 //
+//  Kaimana example based on original source released by ParadiseArcadeShop.com October 15, 2013
+//
+//  Created:  October 24, 2013    zonbipanda // gmail.com
+//  Revised:  October 26, 2013    zonbipanda // gmail.com
 
 
 #include <avr/io.h>
@@ -30,7 +35,6 @@ void setLEDRandomColor(int index);
 
 
 // ParadiseArcadeShop.com Kaimana features initialzied when Kaimana class instantiated
-// instantiate Kaimana Class
 Kaimana kaimana;
 
 
@@ -77,9 +81,66 @@ void loop()
 }
 
 
+// ==============================================================
+//
+//  local functions start here
+//
+// ==============================================================
 
 
-// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// light up all leds at boot to demonstrate everything is functional
+//
+void showStartup(void)
+{
+  kaimana.setALL( BLACK );
+  delay( BOOT_COLOR_DELAY );
+  kaimana.setALL( RED );
+  delay( BOOT_COLOR_DELAY );
+  kaimana.setALL( GREEN );
+  delay( BOOT_COLOR_DELAY );
+  kaimana.setALL( BLUE );
+  delay( BOOT_COLOR_DELAY );
+
+  kaimana.setALL( BLACK );
+  delay( BOOT_COMPLETE_DELAY );
+} 
+
+
+// set LED to one of 8 predefined colors selected at random
+//
+void setLEDRandomColor(int index)
+{
+  switch(random(1,8))    // pick a random color between 1 and 8
+  {
+    case 1:
+      kaimana.setLED(index, COLOR_RANDOM_1);
+      break;
+    case 2:
+      kaimana.setLED(index, COLOR_RANDOM_2);
+      break;
+    case 3:
+      kaimana.setLED(index, COLOR_RANDOM_3);
+      break;
+    case 4:
+      kaimana.setLED(index, COLOR_RANDOM_4);
+      break;
+    case 5:
+      kaimana.setLED(index, COLOR_RANDOM_5);
+      break;
+    case 6:
+      kaimana.setLED(index, COLOR_RANDOM_6);
+      break;
+    case 7:
+      kaimana.setLED(index, COLOR_RANDOM_7);
+      break;
+    case 8:
+      kaimana.setLED(index, COLOR_RANDOM_8);
+      break;
+    default:   // any undefined value so discard data and set led to BLACK
+      kaimana.setLED(index, BLACK);    
+      break;
+  }  
+}
 
 
 
@@ -456,43 +517,43 @@ int pollSwitches(void)
   // combo #6
   // test for: Ultra 2 — Metsu Hadouken
   // combo is: DOWN, DOWN+RIGHT, RIGHT, DOWN, DOWN+RIGHT, RIGHT, RIGHT+K3
-  if( kaimana.historyTest( ATTACK_RIGHT + ATTACK_K3, ATTACK_RIGHT, ATTACK_DOWN + ATTACK_RIGHT, ATTACK_DOWN, ATTACK_NONE, ATTACK_RIGHT, ATTACK_DOWN + ATTACK_RIGHT, ATTACK_DOWN ) )
+  if( kaimana.historyTest( COMBO_PATTERN_6A ) )
       animation_combo_6();
 
   // combo #5
   // test for: Ultra 1 — Metsu Hadouken
   // combo is: DOWN, DOWN+RIGHT, RIGHT, <NONE>, DOWN, DOWN+RIGHT, RIGHT, RIGHT+P3
-  if( kaimana.historyTest( ATTACK_RIGHT + ATTACK_P3, ATTACK_RIGHT, ATTACK_DOWN + ATTACK_RIGHT, ATTACK_DOWN, ATTACK_NONE, ATTACK_RIGHT, ATTACK_DOWN + ATTACK_RIGHT, ATTACK_DOWN ) )
+  if( kaimana.historyTest( COMBO_PATTERN_5A ) )
       animation_combo_5();
 
   // combo #4
   // test for: Super — Shinkuu Hadouken
   // combo is: DOWN, DOWN+RIGHT, RIGHT, <NONE>, DOWN, DOWN+RIGHT, RIGHT, RIGHT+P1
-  if( kaimana.historyTest( ATTACK_RIGHT + ATTACK_P1, ATTACK_RIGHT, ATTACK_DOWN + ATTACK_RIGHT, ATTACK_DOWN, ATTACK_NONE, ATTACK_RIGHT, ATTACK_DOWN + ATTACK_RIGHT, ATTACK_DOWN ) )
+  if( kaimana.historyTest( COMBO_PATTERN_4A ) )
       animation_combo_4();
 
   // combo #3
   // test for: Tatsumaki Senpukyaku (Hurricane Kick)
   // combo is: DOWN, DOWN+LEFT, LEFT, LEFT+K1 or LEFT+K2
-  if( kaimana.historyTest( ATTACK_LEFT + ATTACK_K1, ATTACK_LEFT, ATTACK_DOWN + ATTACK_LEFT, ATTACK_DOWN ) )
+  if( kaimana.historyTest( COMBO_PATTERN_3A ) )
       animation_combo_3();
-  if( kaimana.historyTest( ATTACK_LEFT + ATTACK_K2, ATTACK_LEFT, ATTACK_DOWN + ATTACK_LEFT, ATTACK_DOWN ) )
+  if( kaimana.historyTest( COMBO_PATTERN_3B ) )
       animation_combo_3();
 
   // combo #2
   // test for: Ryu Shoryuken (Dragon Punch)
   // combo is: RIGHT, <NONE>, DOWN, DOWN+RIGHT, DOWN+RIGHT+P1 or DOWN+RIGHT+P2
-  if( kaimana.historyTest( ATTACK_DOWN + ATTACK_RIGHT + ATTACK_P1, ATTACK_DOWN + ATTACK_RIGHT, ATTACK_DOWN, ATTACK_NONE,  ATTACK_RIGHT ) )
+  if( kaimana.historyTest( COMBO_PATTERN_2A ) )
       animation_combo_2();
-  if( kaimana.historyTest( ATTACK_DOWN + ATTACK_RIGHT + ATTACK_P2, ATTACK_DOWN + ATTACK_RIGHT, ATTACK_DOWN, ATTACK_NONE,  ATTACK_RIGHT ) )
+  if( kaimana.historyTest( COMBO_PATTERN_2B ) )
       animation_combo_2();
 
   // combo #1
   // test for: Ryu Hadouken (Fireball) 
   // combo is: DOWN, DOWN+RIGHT, RIGHT, RIGHT+P1 or RIGHT+P2  
-  if( kaimana.historyTest( ATTACK_RIGHT + ATTACK_P1, ATTACK_RIGHT, ATTACK_DOWN + ATTACK_RIGHT, ATTACK_DOWN ) )
+  if( kaimana.historyTest( COMBO_PATTERN_1A ) )
       animation_combo_1();
-  if( kaimana.historyTest( ATTACK_RIGHT + ATTACK_P2, ATTACK_RIGHT, ATTACK_DOWN + ATTACK_RIGHT, ATTACK_DOWN ) )
+  if( kaimana.historyTest( COMBO_PATTERN_1B ) )
       animation_combo_1();
 
 
@@ -511,67 +572,9 @@ int pollSwitches(void)
   
   // return number of active switches
   return(iActiveSwitchCount);
-
 }  
 
 
 
  
 
-
-
-
-
- // light up all leds at boot to demonstrate everything is functional
-//
-void showStartup(void)
-{
-  kaimana.setALL( BLACK );
-  delay( BOOT_COLOR_DELAY );
-  kaimana.setALL( RED );
-  delay( BOOT_COLOR_DELAY );
-  kaimana.setALL( GREEN );
-  delay( BOOT_COLOR_DELAY );
-  kaimana.setALL( BLUE );
-  delay( BOOT_COLOR_DELAY );
-
-  kaimana.setALL( BLACK );
-  delay( BOOT_COMPLETE_DELAY );
-} 
-
-
-// set LED to one of 8 predefined colors selected at random
-//
-void setLEDRandomColor(int index)
-{
-  switch(random(1,8))    // pick a random color between 1 and 8
-  {
-    case 1:
-      kaimana.setLED(index, COLOR_RANDOM_1);
-      break;
-    case 2:
-      kaimana.setLED(index, COLOR_RANDOM_2);
-      break;
-    case 3:
-      kaimana.setLED(index, COLOR_RANDOM_3);
-      break;
-    case 4:
-      kaimana.setLED(index, COLOR_RANDOM_4);
-      break;
-    case 5:
-      kaimana.setLED(index, COLOR_RANDOM_5);
-      break;
-    case 6:
-      kaimana.setLED(index, COLOR_RANDOM_6);
-      break;
-    case 7:
-      kaimana.setLED(index, COLOR_RANDOM_7);
-      break;
-    case 8:
-      kaimana.setLED(index, COLOR_RANDOM_8);
-      break;
-    default:   // any undefined value so discard data and set led to BLACK
-      kaimana.setLED(index, BLACK);    
-      break;
-  }  
-}
