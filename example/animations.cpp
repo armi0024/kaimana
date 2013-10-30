@@ -209,13 +209,113 @@ void animation_combo_2(void)
 //
 void animation_combo_3(void)
 {
-  kaimana.setALL(BLACK);
-
-  kaimana.setALL(GREEN);
-  delay(2000);
 
   kaimana.setALL(BLACK);
+
+ kaimana.setLED( LED_K1, RED );
+   delay(25);
+   kaimana.update();
+ kaimana.setLED( LED_K2, RED );
+   delay(25);
+   kaimana.update();
+ kaimana.setLED( LED_K3, RED );
+   delay(25);
+   kaimana.update();
+ kaimana.setLED( LED_K4, RED );
+   delay(25);
+   kaimana.update();
+ kaimana.setLED( LED_P4, RED );
+   delay(25);
+   kaimana.update();
+ kaimana.setLED( LED_P3, RED );
+   delay(25);
+   kaimana.update();
+ kaimana.setLED( LED_P2, RED );
+   delay(25);
+   kaimana.update();
+ kaimana.setLED( LED_P1, RED );
+   delay(25);
+   kaimana.update();
+
+
+ kaimana.setLED( LED_K1, GREEN );
+   delay(25);
+   kaimana.update();
+ kaimana.setLED( LED_K2, GREEN );
+   delay(25);
+   kaimana.update();
+ kaimana.setLED( LED_K3, GREEN );
+   delay(25);
+   kaimana.update();
+ kaimana.setLED( LED_K4, GREEN );
+   delay(25);
+   kaimana.update();
+ kaimana.setLED( LED_P4, GREEN );
+   delay(25);
+   kaimana.update();
+ kaimana.setLED( LED_P3, GREEN );
+   delay(25);
+   kaimana.update();
+ kaimana.setLED( LED_P2, GREEN );
+   delay(25);
+   kaimana.update();
+ kaimana.setLED( LED_P1, GREEN );
+   delay(25);
+   kaimana.update();
+
+
+ kaimana.setLED( LED_K1, BLUE );
+   delay(25);
+   kaimana.update();
+ kaimana.setLED( LED_K2, BLUE );
+   delay(25);
+   kaimana.update();
+ kaimana.setLED( LED_K3, BLUE );
+   delay(25);
+   kaimana.update();
+ kaimana.setLED( LED_K4, BLUE );
+   delay(25);
+   kaimana.update();
+ kaimana.setLED( LED_P4, BLUE );
+   delay(25);
+   kaimana.update();
+ kaimana.setLED( LED_P3, BLUE );
+   delay(25);
+   kaimana.update();
+ kaimana.setLED( LED_P2, BLUE );
+   delay(25);
+   kaimana.update();
+ kaimana.setLED( LED_P1, BLUE );
+   delay(25);
+   kaimana.update();
+   
+ kaimana.setLED( LED_K1, BLACK );
+   delay(25);
+   kaimana.update();
+ kaimana.setLED( LED_K2, BLACK );
+   delay(25);
+   kaimana.update();
+ kaimana.setLED( LED_K3, BLACK );
+   delay(25);
+   kaimana.update();
+ kaimana.setLED( LED_K4, BLACK );
+   delay(25);
+   kaimana.update();
+ kaimana.setLED( LED_P4, BLACK );
+   delay(25);
+   kaimana.update();
+ kaimana.setLED( LED_P3, BLACK );
+   delay(25);
+   kaimana.update();
+ kaimana.setLED( LED_P2, BLACK );
+   delay(25);
+   kaimana.update();
+ kaimana.setLED( LED_P1, BLACK );
+   delay(25);
+   kaimana.update();
+
 }
+
 
 
 // Super — Shinkuu Hadouken
