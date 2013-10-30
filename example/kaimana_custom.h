@@ -7,7 +7,7 @@
 //  Code may be copied, modified, resused with this Copyright notice.
 //  No commercial use without written permission from Paradise Arcade Shop.
 //
-//  Paradise Arcade Shop Kaimana PS360+LED Driver Board
+//  Paradise Arcade Shop Kaimana LED Driver Board
 //  Initial Release October 15, 2013
 //
 //  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
