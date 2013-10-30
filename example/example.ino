@@ -3,8 +3,8 @@
 //  Copyright 2013 Paradise Arcade Shop, ParadiseArcadeShop.com  
 //  All rights reserved.  Use is subject to license terms.
 //
-//  Code is provided for entertainment purposes and use with the Kaimana controller
-//  Code may be copied, modified, resused with this Copyright notice
+//  Code is provided for entertainment purposes and use with the Kaimana controller.
+//  Code may be copied, modified, resused with this Copyright notice.
 //  No commercial use without written permission from Paradise Arcade Shop.
 //
 //  Paradise Arcade Shop Kaimana LED Driver Board
@@ -21,7 +21,7 @@
 //  Kaimana example based on original source released by ParadiseArcadeShop.com October 15, 2013
 //
 //  Created:  October 24, 2013    zonbipanda // gmail.com
-//  Revised:  October 26, 2013    zonbipanda // gmail.com
+//  Revised:  October 29, 2013    zonbipanda // gmail.com
 
 
 #include <avr/io.h>
@@ -510,54 +510,53 @@ int pollSwitches(void)
 
   // convert joystick, P1-P4, K1-K4 into a single unsigned int
   switchActivity = joystickDirection + switchActivity;
-  kaimana.historyUpdate(switchActivity);
+  kaimana.switchHistorySet(switchActivity);
   
 
-  // test for combinations from most complext to least
-  // test for switches in reverse order
-  // newest switch to oldest switch
+  // test for combinations from most complext to least complex
+  // test for switches in reverse order (newest to oldest)
 
 
   // combo #6
   // test for: Ultra 2 — Metsu Hadouken
   // combo is: DOWN, DOWN+RIGHT, RIGHT, DOWN, DOWN+RIGHT, RIGHT, RIGHT+K3
-  if( kaimana.historyTest( COMBO_PATTERN_6A ) )
+  if( kaimana.switchHistoryTest( COMBO_PATTERN_6A ) )
       animation_combo_6();
 
   // combo #5
   // test for: Ultra 1 — Metsu Hadouken
   // combo is: DOWN, DOWN+RIGHT, RIGHT, <NONE>, DOWN, DOWN+RIGHT, RIGHT, RIGHT+P3
-  if( kaimana.historyTest( COMBO_PATTERN_5A ) )
+  if( kaimana.switchHistoryTest( COMBO_PATTERN_5A ) )
       animation_combo_5();
 
   // combo #4
   // test for: Super — Shinkuu Hadouken
   // combo is: DOWN, DOWN+RIGHT, RIGHT, <NONE>, DOWN, DOWN+RIGHT, RIGHT, RIGHT+P1
-  if( kaimana.historyTest( COMBO_PATTERN_4A ) )
+  if( kaimana.switchHistoryTest( COMBO_PATTERN_4A ) )
       animation_combo_4();
 
   // combo #3
   // test for: Tatsumaki Senpukyaku (Hurricane Kick)
   // combo is: DOWN, DOWN+LEFT, LEFT, LEFT+K1 or LEFT+K2
-  if( kaimana.historyTest( COMBO_PATTERN_3A ) )
+  if( kaimana.switchHistoryTest( COMBO_PATTERN_3A ) )
       animation_combo_3();
-  if( kaimana.historyTest( COMBO_PATTERN_3B ) )
+  if( kaimana.switchHistoryTest( COMBO_PATTERN_3B ) )
       animation_combo_3();
 
   // combo #2
   // test for: Ryu Shoryuken (Dragon Punch)
   // combo is: RIGHT, <NONE>, DOWN, DOWN+RIGHT, DOWN+RIGHT+P1 or DOWN+RIGHT+P2
-  if( kaimana.historyTest( COMBO_PATTERN_2A ) )
+  if( kaimana.switchHistoryTest( COMBO_PATTERN_2A ) )
       animation_combo_2();
-  if( kaimana.historyTest( COMBO_PATTERN_2B ) )
+  if( kaimana.switchHistoryTest( COMBO_PATTERN_2B ) )
       animation_combo_2();
 
   // combo #1
   // test for: Ryu Hadouken (Fireball) 
   // combo is: DOWN, DOWN+RIGHT, RIGHT, RIGHT+P1 or RIGHT+P2  
-  if( kaimana.historyTest( COMBO_PATTERN_1A ) )
+  if( kaimana.switchHistoryTest( COMBO_PATTERN_1A ) )
       animation_combo_1();
-  if( kaimana.historyTest( COMBO_PATTERN_1B ) )
+  if( kaimana.switchHistoryTest( COMBO_PATTERN_1B ) )
       animation_combo_1();
 
 
@@ -572,7 +571,7 @@ int pollSwitches(void)
   }  
 
   // update the leds with new/current colors in the array
-  kaimana.update();
+  kaimana.updateALL();
   
   // return number of active switches
   return(iActiveSwitchCount);

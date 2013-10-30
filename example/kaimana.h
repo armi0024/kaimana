@@ -1,10 +1,10 @@
 //  kaimana.h
 //
-//  Copyright 2013 Paradise Arcade Shop, ParadiseArcadeShop.com  
+//  Copyright 2013 Paradise Arcade Shop, ParadiseArcadeShop.com
 //  All rights reserved.  Use is subject to license terms.
 //
-//  Code is provided for entertainment purposes and use with the Kaimana controller
-//  Code may be copied, modified, resused with this Copyright notice
+//  Code is provided for entertainment purposes and use with the Kaimana controller.
+//  Code may be copied, modified, resused with this Copyright notice.
 //  No commercial use without written permission from Paradise Arcade Shop.
 //
 //  Paradise Arcade Shop Kaimana LED Driver Board
@@ -21,7 +21,7 @@
 //  Kaimana class based on original source released by ParadiseArcadeShop.com October 15, 2013
 //
 //  Created:  October 24, 2013    zonbipanda // gmail.com
-//  Revised:  October 26, 2013    zonbipanda // gmail.com
+//  Revised:  October 29, 2013    zonbipanda // gmail.com
 //
 
 #ifndef __kaimana_h__
@@ -76,7 +76,7 @@
 // number of switch inputs on kaimana
 #define  SWITCH_COUNT         15
 
-// if this is changed then Kaimana::historyTest must also be revised
+// if this is changed then Kaimana::switchHistoryTest must also be revised
 #define SWITCH_HISTORY_MAX  16
 
 
@@ -111,28 +111,28 @@ class Kaimana
   private:
     // declare RGB array for 15 buttons --> 12 LEDs
     // specific to ParadiseArcadeShop.com Kaimana board (PS360+LED)
-    RGB_t _led[LED_COUNT];
+    RGB_t    _led[LED_COUNT];
     uint16_t _switchHistory[SWITCH_HISTORY_MAX];
-    
+
   public:
     Kaimana(void);
     void    setLED(int index, int iR, int iG, int iB);
     void    setALL(int iR, int iG, int iB);
-    void    update(void);
-    void    historyClear(void);
-    void    historyUpdate(uint16_t latestValue);
-    boolean historyTest( uint16_t a0=ATTACK_FALSE, uint16_t a1=ATTACK_FALSE, uint16_t a2=ATTACK_FALSE,  uint16_t a3=ATTACK_FALSE,  uint16_t a4=ATTACK_FALSE,  uint16_t a5=ATTACK_FALSE,  uint16_t a6=ATTACK_FALSE,  uint16_t a7=ATTACK_FALSE, uint16_t a8=ATTACK_FALSE, uint16_t a9=ATTACK_FALSE, uint16_t a10=ATTACK_FALSE, uint16_t a11=ATTACK_FALSE, uint16_t a12=ATTACK_FALSE, uint16_t a13=ATTACK_FALSE, uint16_t a14=ATTACK_FALSE, uint16_t a15=ATTACK_FALSE );
+    void    updateALL(void);
+    void    switchHistoryClear(void);
+    void    switchHistorySet(uint16_t latestValue);
+    boolean switchHistoryTest( uint16_t a0=ATTACK_FALSE, uint16_t a1=ATTACK_FALSE, uint16_t a2=ATTACK_FALSE,  uint16_t a3=ATTACK_FALSE,  uint16_t a4=ATTACK_FALSE,  uint16_t a5=ATTACK_FALSE,  uint16_t a6=ATTACK_FALSE,  uint16_t a7=ATTACK_FALSE, uint16_t a8=ATTACK_FALSE, uint16_t a9=ATTACK_FALSE, uint16_t a10=ATTACK_FALSE, uint16_t a11=ATTACK_FALSE, uint16_t a12=ATTACK_FALSE, uint16_t a13=ATTACK_FALSE, uint16_t a14=ATTACK_FALSE, uint16_t a15=ATTACK_FALSE );
 };
 
 
 // prototypes for Kaimana functions
 // specific to ParadiseArcadeShop.com Kaimana board (PS360+LED)
-void setLED(int index, int iR, int iG, int iB);
-void setALL(int iR, int iG, int iB);
-void update(void);
-void historyClear(void);
-void historyUpdate(uint16_t latestValue);
-boolean historyTest( uint16_t a0=ATTACK_FALSE, uint16_t a1=ATTACK_FALSE, uint16_t a2=ATTACK_FALSE,  uint16_t a3=ATTACK_FALSE,  uint16_t a4=ATTACK_FALSE,  uint16_t a5=ATTACK_FALSE,  uint16_t a6=ATTACK_FALSE,  uint16_t a7=ATTACK_FALSE, uint16_t a8=ATTACK_FALSE, uint16_t a9=ATTACK_FALSE, uint16_t a10=ATTACK_FALSE, uint16_t a11=ATTACK_FALSE, uint16_t a12=ATTACK_FALSE, uint16_t a13=ATTACK_FALSE, uint16_t a14=ATTACK_FALSE, uint16_t a15=ATTACK_FALSE );
+void 	setLED(int index, int iR, int iG, int iB);
+void 	setALL(int iR, int iG, int iB);
+void 	updateALL(void);
+void 	switchHistoryClear(void);
+void 	switchHistorySet(uint16_t latestValue);
+boolean switchHistoryTest( uint16_t a0=ATTACK_FALSE, uint16_t a1=ATTACK_FALSE, uint16_t a2=ATTACK_FALSE,  uint16_t a3=ATTACK_FALSE,  uint16_t a4=ATTACK_FALSE,  uint16_t a5=ATTACK_FALSE,  uint16_t a6=ATTACK_FALSE,  uint16_t a7=ATTACK_FALSE, uint16_t a8=ATTACK_FALSE, uint16_t a9=ATTACK_FALSE, uint16_t a10=ATTACK_FALSE, uint16_t a11=ATTACK_FALSE, uint16_t a12=ATTACK_FALSE, uint16_t a13=ATTACK_FALSE, uint16_t a14=ATTACK_FALSE, uint16_t a15=ATTACK_FALSE );
 
 
 #endif

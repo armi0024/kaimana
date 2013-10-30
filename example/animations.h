@@ -3,8 +3,8 @@
 //  Copyright 2013 Paradise Arcade Shop, ParadiseArcadeShop.com  
 //  All rights reserved.  Use is subject to license terms.
 //
-//  Code is provided for entertainment purposes and use with the Kaimana controller
-//  Code may be copied, modified, resused with this Copyright notice
+//  Code is provided for entertainment purposes and use with the Kaimana controller.
+//  Code may be copied, modified, resused with this Copyright notice.
 //  No commercial use without written permission from Paradise Arcade Shop.
 //
 //  Paradise Arcade Shop Kaimana LED Driver Board
@@ -21,7 +21,7 @@
 //  Kaimana animations based on original source released by ParadiseArcadeShop.com October 15, 2013
 //
 //  Created:  October 24, 2013    zonbipanda // gmail.com
-//  Revised:  October 26, 2013    zonbipanda // gmail.com
+//  Revised:  October 29, 2013    zonbipanda // gmail.com
 //
 
 #ifndef __animations_h__

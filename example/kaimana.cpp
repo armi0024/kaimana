@@ -3,8 +3,8 @@
 //  Copyright 2013 Paradise Arcade Shop, ParadiseArcadeShop.com  
 //  All rights reserved.  Use is subject to license terms.
 //
-//  Code is provided for entertainment purposes and use with the Kaimana controller
-//  Code may be copied, modified, resused with this Copyright notice
+//  Code is provided for entertainment purposes and use with the Kaimana controller.
+//  Code may be copied, modified, resused with this Copyright notice.
 //  No commercial use without written permission from Paradise Arcade Shop.
 //
 //  Paradise Arcade Shop Kaimana LED Driver Board
@@ -21,7 +21,7 @@
 //  Kaimana class based on original source released by ParadiseArcadeShop.com October 15, 2013
 //
 //  Created:  October 24, 2013    zonbipanda // gmail.com
-//  Revised:  October 26, 2013    zonbipanda // gmail.com
+//  Revised:  October 29, 2013    zonbipanda // gmail.com
 //
 
 #include <avr/io.h>
@@ -59,7 +59,7 @@ Kaimana::Kaimana(void)
   pinMode( PIN_K4,     INPUT_PULLUP );
 
   // initialize Switch History
-  historyClear();
+  switchHistoryClear();
 }
 
 
@@ -86,11 +86,11 @@ void Kaimana::setALL(int iR, int iG, int iB)
   }
 
   // update the leds with new/current colors in the array
-  update();
+  updateALL();
 }
 
 
-void Kaimana::update(void)
+void Kaimana::updateALL(void)
 {
   // update the leds with new/current colors and delay a little to avoid flickering (yea, it happens really, really fast!)
   // specific to ParadiseArcadeShop.com Kaimana board (PS360+LED)
@@ -214,7 +214,7 @@ void Kaimana::update(void)
 
 
 
-void Kaimana::historyClear(void)
+void Kaimana::switchHistoryClear(void)
 {
   static int  i;
   
@@ -223,7 +223,7 @@ void Kaimana::historyClear(void)
     _switchHistory[i] = 0;
 }
 
-void Kaimana::historyUpdate(uint16_t latestValue)
+void Kaimana::switchHistorySet(uint16_t latestValue)
 {
   static int  i;
 
@@ -240,7 +240,7 @@ void Kaimana::historyUpdate(uint16_t latestValue)
 }  
 
 
-boolean Kaimana::historyTest( uint16_t a0, uint16_t a1, uint16_t a2,  uint16_t a3,  uint16_t a4,  uint16_t a5,  uint16_t a6,  uint16_t a7, uint16_t a8, uint16_t a9, uint16_t a10, uint16_t a11, uint16_t a12, uint16_t a13, uint16_t a14, uint16_t a15 )
+boolean Kaimana::switchHistoryTest( uint16_t a0, uint16_t a1, uint16_t a2,  uint16_t a3,  uint16_t a4,  uint16_t a5,  uint16_t a6,  uint16_t a7, uint16_t a8, uint16_t a9, uint16_t a10, uint16_t a11, uint16_t a12, uint16_t a13, uint16_t a14, uint16_t a15 )
 {
   static boolean result;
  
@@ -301,7 +301,7 @@ boolean Kaimana::historyTest( uint16_t a0, uint16_t a1, uint16_t a2,  uint16_t a
   
   // clear history when matched = TRUE
   if(result == true)
-    historyClear();
+    switchHistoryClear();
     
   return(result);
 }
