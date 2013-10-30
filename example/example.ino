@@ -21,7 +21,7 @@
 //  Kaimana example based on original source released by ParadiseArcadeShop.com October 15, 2013
 //
 //  Created:  October 24, 2013    zonbipanda // gmail.com
-//  Revised:  October 29, 2013    zonbipanda // gmail.com
+//  Revised:  October 30, 2013    zonbipanda // gmail.com
 
 
 #include <avr/io.h>
@@ -518,19 +518,19 @@ int pollSwitches(void)
 
 
   // combo #6
-  // test for: Ultra 2 — Metsu Hadouken
+  // test for: Ultra 2 (Metsu Shoryuken)
   // combo is: DOWN, DOWN+RIGHT, RIGHT, DOWN, DOWN+RIGHT, RIGHT, RIGHT+K3
   if( kaimana.switchHistoryTest( COMBO_PATTERN_6A ) )
       animation_combo_6();
 
   // combo #5
-  // test for: Ultra 1 — Metsu Hadouken
+  // test for: Ultra 1 (Metsu Hadouken)
   // combo is: DOWN, DOWN+RIGHT, RIGHT, <NONE>, DOWN, DOWN+RIGHT, RIGHT, RIGHT+P3
   if( kaimana.switchHistoryTest( COMBO_PATTERN_5A ) )
       animation_combo_5();
 
   // combo #4
-  // test for: Super — Shinkuu Hadouken
+  // test for: Super (Shinkuu Hadouken)
   // combo is: DOWN, DOWN+RIGHT, RIGHT, <NONE>, DOWN, DOWN+RIGHT, RIGHT, RIGHT+P1
   if( kaimana.switchHistoryTest( COMBO_PATTERN_4A ) )
       animation_combo_4();

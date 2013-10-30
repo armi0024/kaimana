@@ -1,6 +1,6 @@
 //  kaimana.cpp
 //
-//  Copyright 2013 Paradise Arcade Shop, ParadiseArcadeShop.com  
+//  Copyright 2013 Paradise Arcade Shop, ParadiseArcadeShop.com
 //  All rights reserved.  Use is subject to license terms.
 //
 //  Code is provided for entertainment purposes and use with the Kaimana controller.
@@ -21,7 +21,7 @@
 //  Kaimana animations based on original source released by ParadiseArcadeShop.com October 15, 2013
 //
 //  Created:  October 24, 2013    zonbipanda // gmail.com
-//  Revised:  October 29, 2013    zonbipanda // gmail.com
+//  Revised:  October 30, 2013    zonbipanda // gmail.com
 //
 
 #include <avr/io.h>
@@ -31,9 +31,8 @@
 #include "animations.h"
 
 
-// Hadouken (Fireball)
+// Color Fade Animation when Idle
 //
-
 int animation_idle(void)
 {
   int  index;
@@ -51,30 +50,28 @@ int animation_idle(void)
       {
         kaimana.setLED(
           i,
-          pgm_read_byte_near(&colorCycleData[((index+IDLE_OFFSET_2+((LED_COUNT-i)*IDLE_OFFSET))%IDLE_SIZE)]), 
-          pgm_read_byte_near(&colorCycleData[((index+IDLE_OFFSET_1+((LED_COUNT-i)*IDLE_OFFSET))%IDLE_SIZE)]), 
+          pgm_read_byte_near(&colorCycleData[((index+IDLE_OFFSET_2+((LED_COUNT-i)*IDLE_OFFSET))%IDLE_SIZE)]),
+          pgm_read_byte_near(&colorCycleData[((index+IDLE_OFFSET_1+((LED_COUNT-i)*IDLE_OFFSET))%IDLE_SIZE)]),
           pgm_read_byte_near(&colorCycleData[((index+IDLE_OFFSET_0+((LED_COUNT-i)*IDLE_OFFSET))%IDLE_SIZE)])
         );
       }
-      
+
       // update the leds with new/current colors in the array
       kaimana.updateALL();
 
       // test all switches and exit idle animation if active switch found
       for(i=0;i<SWITCH_COUNT;++i)
       {
-        if( !digitalRead(switchPins[i]) )  
+        if( !digitalRead(switchPins[i]) )
           return(false);
       }
 
       // place test for switches here and use calculated timer not delay
-      // 
+      //
       delay( IDLE_ANIMATION_DELAY );
     }
   }
-}  
-
-
+}
 
 
 // Hadouken (Fireball)
@@ -84,7 +81,7 @@ void animation_combo_1(void)
   int  index;
   int  i;
   int  counter;
-  
+
   counter = FIREBALL_SIZE-1;
 
   kaimana.setALL( BLACK );
@@ -97,13 +94,13 @@ void animation_combo_1(void)
       kaimana.setLED(
         LED_P1,
         0,  // no red just cyan used for fireball
-        pgm_read_byte_near(&colorCycleData[counter%FIREBALL_SIZE]), 
+        pgm_read_byte_near(&colorCycleData[counter%FIREBALL_SIZE]),
         pgm_read_byte_near(&colorCycleData[counter%FIREBALL_SIZE])
       );
       kaimana.setLED(
         LED_K1,
         0,  // no red just cyan used for fireball
-        pgm_read_byte_near(&colorCycleData[counter%FIREBALL_SIZE]), 
+        pgm_read_byte_near(&colorCycleData[counter%FIREBALL_SIZE]),
         pgm_read_byte_near(&colorCycleData[counter%FIREBALL_SIZE])
       );
     }
@@ -119,13 +116,13 @@ void animation_combo_1(void)
       kaimana.setLED(
         LED_P2,
         0,  // no red just cyan used for fireball
-        pgm_read_byte_near(&colorCycleData[(counter+(FIREBALL_OFFSET_1))%FIREBALL_SIZE]), 
+        pgm_read_byte_near(&colorCycleData[(counter+(FIREBALL_OFFSET_1))%FIREBALL_SIZE]),
         pgm_read_byte_near(&colorCycleData[(counter+(FIREBALL_OFFSET_1))%FIREBALL_SIZE])
       );
       kaimana.setLED(
         LED_K2,
         0,  // no red just cyan used for fireball
-        pgm_read_byte_near(&colorCycleData[(counter+(FIREBALL_OFFSET_1))%FIREBALL_SIZE]), 
+        pgm_read_byte_near(&colorCycleData[(counter+(FIREBALL_OFFSET_1))%FIREBALL_SIZE]),
         pgm_read_byte_near(&colorCycleData[(counter+(FIREBALL_OFFSET_1))%FIREBALL_SIZE])
       );
     }
@@ -141,13 +138,13 @@ void animation_combo_1(void)
       kaimana.setLED(
         LED_P3,
         0,  // no red just cyan used for fireball
-        pgm_read_byte_near(&colorCycleData[(counter+(FIREBALL_OFFSET_2))%FIREBALL_SIZE]), 
+        pgm_read_byte_near(&colorCycleData[(counter+(FIREBALL_OFFSET_2))%FIREBALL_SIZE]),
         pgm_read_byte_near(&colorCycleData[(counter+(FIREBALL_OFFSET_2))%FIREBALL_SIZE])
       );
       kaimana.setLED(
         LED_K3,
         0,  // no red just cyan used for fireball
-        pgm_read_byte_near(&colorCycleData[(counter+(FIREBALL_OFFSET_2))%FIREBALL_SIZE]), 
+        pgm_read_byte_near(&colorCycleData[(counter+(FIREBALL_OFFSET_2))%FIREBALL_SIZE]),
         pgm_read_byte_near(&colorCycleData[(counter+(FIREBALL_OFFSET_2))%FIREBALL_SIZE])
       );
     }
@@ -163,13 +160,13 @@ void animation_combo_1(void)
       kaimana.setLED(
         LED_P4,
         0,  // no red just cyan used for fireball
-        pgm_read_byte_near(&colorCycleData[(counter+(FIREBALL_OFFSET_3))%FIREBALL_SIZE]), 
+        pgm_read_byte_near(&colorCycleData[(counter+(FIREBALL_OFFSET_3))%FIREBALL_SIZE]),
         pgm_read_byte_near(&colorCycleData[(counter+(FIREBALL_OFFSET_3))%FIREBALL_SIZE])
       );
       kaimana.setLED(
         LED_K4,
         0,  // no red just cyan used for fireball
-        pgm_read_byte_near(&colorCycleData[(counter+(FIREBALL_OFFSET_3))%FIREBALL_SIZE]), 
+        pgm_read_byte_near(&colorCycleData[(counter+(FIREBALL_OFFSET_3))%FIREBALL_SIZE]),
         pgm_read_byte_near(&colorCycleData[(counter+(FIREBALL_OFFSET_3))%FIREBALL_SIZE])
       );
     }
@@ -184,12 +181,12 @@ void animation_combo_1(void)
 
     // slow down the fireball animation
     delayMicroseconds( FIREBALL_DELAY );
-    
+
     counter -= 4;
   }
 
   kaimana.setALL( BLACK );
-}  
+}
 
 
 // Shoryuken (Dragon Punch)
@@ -288,7 +285,7 @@ void animation_combo_3(void)
  kaimana.setLED( LED_P1, BLUE );
    delay(25);
    kaimana.update();
-   
+
  kaimana.setLED( LED_K1, BLACK );
    delay(25);
    kaimana.update();
@@ -317,8 +314,7 @@ void animation_combo_3(void)
 }
 
 
-
-// Super — Shinkuu Hadouken
+// Super (Shinkuu Hadouken)
 //
 void animation_combo_4(void)
 {
@@ -331,7 +327,7 @@ void animation_combo_4(void)
 }
 
 
-// Ultra 1 — Metsu Hadouken
+// Ultra 1 (Metsu Hadouken)
 //
 void animation_combo_5(void)
 {
@@ -344,7 +340,7 @@ void animation_combo_5(void)
 }
 
 
-// Ultra 2 — Metsu Hadouken
+// Ultra 2 (Metsu Shoryuken)
 //
 void animation_combo_6(void)
 {
@@ -363,22 +359,22 @@ void animation_combo_6(void)
 
   kaimana.setALL(BLACK);
   delay(80);
-  
-  
+
+
   kaimana.setALL(WHITE);
   delay(60);
 
   kaimana.setALL(BLACK);
   delay(60);
-  
-  
+
+
   kaimana.setALL(WHITE);
   delay(40);
 
   kaimana.setALL(BLACK);
   delay(40);
-  
-  
+
+
   kaimana.setALL(WHITE);
   delay(20);
 
@@ -398,7 +394,7 @@ void animation_combo_6(void)
 
   kaimana.setALL(BLACK);
   delay(5);
-  
+
 
   kaimana.setALL(BLACK);
 }
