@@ -21,7 +21,7 @@
 //  Kaimana animations based on original source released by ParadiseArcadeShop.com October 15, 2013
 //
 //  Created:  October 24, 2013    zonbipanda // gmail.com
-//  Revised:  October 30, 2013    zonbipanda // gmail.com
+//  Revised:  October 31, 2013    zonbipanda // gmail.com
 //
 
 #include <avr/io.h>
@@ -211,105 +211,105 @@ void animation_combo_3(void)
 
  kaimana.setLED( LED_K1, RED );
    delay(25);
-   kaimana.update();
+   kaimana.updateALL();
  kaimana.setLED( LED_K2, RED );
    delay(25);
-   kaimana.update();
+   kaimana.updateALL();
  kaimana.setLED( LED_K3, RED );
    delay(25);
-   kaimana.update();
+   kaimana.updateALL();
  kaimana.setLED( LED_K4, RED );
    delay(25);
-   kaimana.update();
+   kaimana.updateALL();
  kaimana.setLED( LED_P4, RED );
    delay(25);
-   kaimana.update();
+   kaimana.updateALL();
  kaimana.setLED( LED_P3, RED );
    delay(25);
-   kaimana.update();
+   kaimana.updateALL();
  kaimana.setLED( LED_P2, RED );
    delay(25);
-   kaimana.update();
+   kaimana.updateALL();
  kaimana.setLED( LED_P1, RED );
    delay(25);
-   kaimana.update();
+   kaimana.updateALL();
 
 
  kaimana.setLED( LED_K1, GREEN );
    delay(25);
-   kaimana.update();
+   kaimana.updateALL();
  kaimana.setLED( LED_K2, GREEN );
    delay(25);
-   kaimana.update();
+   kaimana.updateALL();
  kaimana.setLED( LED_K3, GREEN );
    delay(25);
-   kaimana.update();
+   kaimana.updateALL();
  kaimana.setLED( LED_K4, GREEN );
    delay(25);
-   kaimana.update();
+   kaimana.updateALL();
  kaimana.setLED( LED_P4, GREEN );
    delay(25);
-   kaimana.update();
+   kaimana.updateALL();
  kaimana.setLED( LED_P3, GREEN );
    delay(25);
-   kaimana.update();
+   kaimana.updateALL();
  kaimana.setLED( LED_P2, GREEN );
    delay(25);
-   kaimana.update();
+   kaimana.updateALL();
  kaimana.setLED( LED_P1, GREEN );
    delay(25);
-   kaimana.update();
+   kaimana.updateALL();
 
 
  kaimana.setLED( LED_K1, BLUE );
    delay(25);
-   kaimana.update();
+   kaimana.updateALL();
  kaimana.setLED( LED_K2, BLUE );
    delay(25);
-   kaimana.update();
+   kaimana.updateALL();
  kaimana.setLED( LED_K3, BLUE );
    delay(25);
-   kaimana.update();
+   kaimana.updateALL();
  kaimana.setLED( LED_K4, BLUE );
    delay(25);
-   kaimana.update();
+   kaimana.updateALL();
  kaimana.setLED( LED_P4, BLUE );
    delay(25);
-   kaimana.update();
+   kaimana.updateALL();
  kaimana.setLED( LED_P3, BLUE );
    delay(25);
-   kaimana.update();
+   kaimana.updateALL();
  kaimana.setLED( LED_P2, BLUE );
    delay(25);
-   kaimana.update();
+   kaimana.updateALL();
  kaimana.setLED( LED_P1, BLUE );
    delay(25);
-   kaimana.update();
+   kaimana.updateALL();
 
  kaimana.setLED( LED_K1, BLACK );
    delay(25);
-   kaimana.update();
+   kaimana.updateALL();
  kaimana.setLED( LED_K2, BLACK );
    delay(25);
-   kaimana.update();
+   kaimana.updateALL();
  kaimana.setLED( LED_K3, BLACK );
    delay(25);
-   kaimana.update();
+   kaimana.updateALL();
  kaimana.setLED( LED_K4, BLACK );
    delay(25);
-   kaimana.update();
+   kaimana.updateALL();
  kaimana.setLED( LED_P4, BLACK );
    delay(25);
-   kaimana.update();
+   kaimana.updateALL();
  kaimana.setLED( LED_P3, BLACK );
    delay(25);
-   kaimana.update();
+   kaimana.updateALL();
  kaimana.setLED( LED_P2, BLACK );
    delay(25);
-   kaimana.update();
+   kaimana.updateALL();
  kaimana.setLED( LED_P1, BLACK );
    delay(25);
-   kaimana.update();
+   kaimana.updateALL();
 
 }
 
