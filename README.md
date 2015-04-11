@@ -25,9 +25,10 @@ THE SOFTWARE.
 The Kaimana class library is based on original source released by ParadiseArcadeShop.com
 with feedback from the community.
 
-Created:  October 24, 2013    zonbipanda
+Created:  October 24, 2013    zonbipanda  -- Arduino 1.0.5 Support
 
 Revised:  October 29, 2013    zonbipanda
 
+Revised:  April   11, 2015    zonbipanda  -- Arduino 1.6.3 Support
 
 _
