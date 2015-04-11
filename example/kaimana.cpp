@@ -20,12 +20,15 @@
 //
 //  Kaimana class based on original source released by ParadiseArcadeShop.com October 15, 2013
 //
-//  Created:  October 24, 2013    zonbipanda // gmail.com
+//  Created:  October 24, 2013    zonbipanda // gmail.com  -- Arduino 1.0.5 Support
 //  Revised:  October 29, 2013    zonbipanda // gmail.com
+//  Revised:  April   11, 2015    zonbipanda // gmail.com  -- Arduino 1.6.3 Support
 //
 
+#define __PROG_TYPES_COMPAT__
 #include <avr/io.h>
-#include "arduino.h"
+#include <avr/pgmspace.h>
+#include "Arduino.h"
 #include "kaimana.h"
 #include "kaimana_custom.h"
 
